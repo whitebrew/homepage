@@ -47,10 +47,14 @@ body {
     padding: 0;
     -webkit-font-smoothing: antialiased;
     overflow-x: hidden;
+    background-color: var(--color-bg-primary);
+    font-family: var(--font-main);
+    color: var(--color-text-primary);
 }
 
 p {
-    line-height: 25px;
+    line-height: 28px;
+    color: var(--color-text-secondary);
 }
 
 .row img {
@@ -61,42 +65,21 @@ p {
 a {
     text-decoration: none;
     line-height: inherit;
-    -webkit-transition: opacity 0.3s ease-out;
-    -moz-transition: opacity 0.3s ease-out;
-    -o-transition: opacity 0.3s ease-out;
-    transition: opacity 0.3s ease-out;
+    color: var(--color-accent-primary);
+    -webkit-transition: all 0.3s ease-out;
+    -moz-transition: all 0.3s ease-out;
+    -o-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
 }
 
-iframe {
-    border: 0 !important;
-}
-
-.parallax-window {
-    min-height: 400px;
-    background: transparent;
-}
-
-figure {
-    margin: 0;
-}
-
-/* Page Border */
-
+/* Page Border - Make it subtle or remove it */
 .page-border {
-    position: fixed;
-    z-index: 999999;
-    pointer-events: none;
+    display: none; /* Future IT look is cleaner without thick borders */
 }
 
-.page-border .bottom-border, .page-border .left-border, .page-border .right-border, .page-border .top-border {
-    background: #f3f3ef;
-    position: fixed;
-    z-index: 9999;
-}
-
-.page-border > .top-border, .page-border > .right-border, .page-border > .bottom-border, .page-border > .left-border {
-    padding: 11px;
-    background: #ccc;
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-text-primary);
 }
 
 .page-border .bottom-border, .page-border .top-border {
