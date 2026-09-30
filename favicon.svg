@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <style>
+    .cup { stroke: #1c1a18; }
+    .steam { stroke: #e0572a; }
+    @media (prefers-color-scheme: dark) { .cup { stroke: #f2efea; } .steam { stroke: #f08a52; } }
+  </style>
+  <g fill="none" stroke-width="3" stroke-linecap="round">
+    <path class="steam" d="M11 4v6M16 2v8M21 4v6"/>
+    <path class="cup" d="M6 15h20v4a8 8 0 0 1-8 8h-4a8 8 0 0 1-8-8z"/>
+  </g>
+</svg>
