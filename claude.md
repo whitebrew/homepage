@@ -1,38 +1,30 @@
-# Whitebrew Project Log
+# Whitebrew Homepage
 
-This file tracks the major milestones and decisions during the Whitebrew homepage redesign.
+One-page company site for whitebrew, a small software studio with no released product yet. Served by GitHub Pages from `main` (custom domain in `CNAME`), so every push to `main` goes live.
 
-## Project Vision
-Transform the existing digital agency-focused homepage into a modern, future-oriented IT software company identity, highlighting the innovation and engineering excellence of Whitebrew and its product "Monolinc".
+## Stack
+- Plain HTML/CSS/vanilla JS. No build step, no framework.
+- `index.html` (markup, KO/EN content), `style.css` (all styles), `main.js` (language toggle), `favicon.svg`.
+- Only external dependency: Pretendard via jsDelivr CDN.
 
-## Timeline & Milestones
+## Design
+- Source: Claude Design project "화이트브루 회사소개 페이지", file `Whitebrew.dc.html`, direction **1a Manifesto**.
+- Big bold Pretendard type, numbered principles (01–03) with an empty 04 row where steam rises ("첫 번째 제품을 빚는 중" / "Something's brewing.").
+- One accent color: persimmon `oklch(0.62 0.19 38)` (dark: `oklch(0.74 0.15 48)`). Tokens live on `:root` in `style.css`.
+- Light/dark follows `prefers-color-scheme`. Steam animation respects `prefers-reduced-motion`.
+- Korean text uses `word-break: keep-all`.
 
-### Phase 1: Planning & Setup (2026-02-28)
-- [x] Analyze current codebase and assets.
-- [x] Establish agent roles and responsibilities (`agents.md`).
-- [x] Initialize project documentation (`claude.md`, `docs/plans/`).
-- [x] Formulate high-level redesign strategy (`docs/plans/plan-v1.md`).
+## Language toggle
+- Default KO; choice stored in `localStorage` (`wb-lang`) and applied in `<head>` before first paint.
+- Every translatable element is a `.stack` holding one `<span lang="ko">` and one `<span lang="en">` in the same grid cell; the inactive one is hidden with `visibility`, so switching never shifts layout. Add new copy the same way.
 
-### Phase 2: Design & Content Strategy (2026-02-28)
-- [x] Define color palette and typography (`docs/plans/design-v1.md`).
-- [x] Draft core messaging for the hero section and Monolinc (`docs/plans/content-v1.md`).
+## Copy notes
+- Wordmark is lowercase "whitebrew"; inside English sentences use "Whitebrew".
+- English headline: "A studio for small software." ("software" is uncountable, never "softwares").
 
-### Phase 3: Tailwind & daisyUI Refactoring (2026-02-28)
-- [x] Integrate Tailwind CSS v4 and daisyUI.
-- [x] Implement `business` theme for professional tech aesthetic.
-- [x] Refactor all sections using modern utility classes and components.
-- [x] Remove legacy CSS/JS/Fonts dependencies.
-- [x] Implement scroll-reveal animations with Intersection Observer.
+## Local preview
+`python3 -m http.server 8080` → http://localhost:8080 (also configured in `.claude/launch.json`).
 
-### Phase 4: Validation & Deployment
-- [x] Verify responsive behavior (Mobile/Tablet/Desktop).
-- [x] Finalize technical foundation for GitHub Pages (No-build CDN).
-- [x] Completed final refactoring report (`docs/plans/final-report-tailwind.md`).
-
-### Phase 5: Full Rebuild from Claude Design (2026-09-30)
-- [x] Dropped the previous Tailwind/daisyUI implementation and legacy `images/`.
-- [x] Rebuilt as a plain HTML/CSS/vanilla JS one-pager from Claude Design direction **1a Manifesto** (`Whitebrew.dc.html`): Pretendard, persimmon accent `oklch(0.62 0.19 38)`.
-- [x] Files: `index.html`, `style.css`, `main.js`, `favicon.svg`. No build step, no framework.
-- [x] KO/EN toggle (default KO, remembered in localStorage); both languages overlap in one grid cell so switching never shifts layout.
-- [x] Light/dark follows `prefers-color-scheme`; steam animation respects `prefers-reduced-motion`.
-- Local preview: `python3 -m http.server 8080` → http://localhost:8080
+## History
+- 2026-02-28: Tailwind/daisyUI "future-oriented IT company" redesign (removed).
+- 2026-09-30: Full rebuild from Claude Design direction 1a; legacy images and planning docs removed.
